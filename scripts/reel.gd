@@ -38,7 +38,6 @@ func _process(delta: float) -> void:
 	
 func _on_start_roll() -> void:
 	is_spinning = true
-	print(self.name, " is spinging!")
 	sprite1_start1()
 	
 func sprite1_start1() -> void:

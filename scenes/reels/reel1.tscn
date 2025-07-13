@@ -12,5 +12,6 @@ texture = ExtResource("2_rnos4")
 centered = false
 
 [node name="ReelSprite2" type="Sprite2D" parent="."]
+position = Vector2(0, 126)
 texture = ExtResource("3_rnos4")
 centered = false
