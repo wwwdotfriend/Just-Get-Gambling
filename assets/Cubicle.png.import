@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcgdt14pkujba"
-path="res://.godot/imported/hi_diamond.png-1a30336ee7ccd1c4f44dd00fc412b8e8.ctex"
+uid="uid://dgkd73ac2ugs4"
+path="res://.godot/imported/Cubicle.png-88031b7b00f9c609c814fc47f00a719c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/slot_machine/symbols/hi_diamond.png"
-dest_files=["res://.godot/imported/hi_diamond.png-1a30336ee7ccd1c4f44dd00fc412b8e8.ctex"]
+source_file="res://assets/Cubicle.png"
+dest_files=["res://.godot/imported/Cubicle.png-88031b7b00f9c609c814fc47f00a719c.ctex"]
 
 [params]
 
