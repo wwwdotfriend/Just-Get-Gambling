@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://ew68vetpql6q"]
+
+[ext_resource type="Texture2D" uid="uid://dj0ekfh8d8una" path="res://assets/sprites/gombling/mountain_dusk.png" id="1_n0jjl"]
+[ext_resource type="Script" uid="uid://cdmvpdyrahf62" path="res://scripts/slot_machine.gd" id="2_4arrq"]
+[ext_resource type="PackedScene" uid="uid://c7f7xmmqighuy" path="res://scenes/reels/reel1.tscn" id="2_nysx1"]
+
+[node name="GomblingSite" type="Control"]
+custom_minimum_size = Vector2(640, 480)
+layout_mode = 3
+anchor_left = 0.222222
+anchor_top = 0.12963
+anchor_right = 0.777778
+anchor_bottom = 0.87037
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n0jjl")
+
+[node name="SlotMachine" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("2_4arrq")
+
+[node name="ReelContainer" type="HBoxContainer" parent="SlotMachine"]
+clip_contents = true
+custom_minimum_size = Vector2(210, 126)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -63.0
+offset_right = 105.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReelControl" type="Control" parent="SlotMachine/ReelContainer"]
+custom_minimum_size = Vector2(42, 126)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Reel1" parent="SlotMachine/ReelContainer/ReelControl" instance=ExtResource("2_nysx1")]
+
+[node name="SpinButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.5
+offset_top = -96.0
+offset_right = 27.5
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Sping!"
+
+[connection signal="pressed" from="SpinButton" to="SlotMachine" method="_on_spin_button_pressed"]

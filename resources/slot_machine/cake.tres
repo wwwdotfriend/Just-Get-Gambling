@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="SlotSymbol" load_steps=2 format=3 uid="uid://bslvat7dycvse"]
+[gd_resource type="Resource" script_class="SlotSymbol" load_steps=3 format=3 uid="uid://bslvat7dycvse"]
 
 [ext_resource type="Script" uid="uid://du8b2bgxfdvmu" path="res://scripts/resources/slot_symbol_resource.gd" id="1_keagn"]
+[ext_resource type="Texture2D" uid="uid://kbhg6kcddrlk" path="res://assets/sprites/gombling/slot_machine/symbols/hi_cake.png" id="2_ygsdl"]
 
 [resource]
 script = ExtResource("1_keagn")
-name = ""
-points = 0
+name = "Cake"
+texture = ExtResource("2_ygsdl")
+points = 100
+type = 1
 metadata/_custom_type_script = "uid://du8b2bgxfdvmu"

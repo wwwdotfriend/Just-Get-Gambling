@@ -11,14 +11,22 @@ config_version=5
 [application]
 
 config/name="Just Get Gambling"
+run/main_scene="uid://b08h8jrqtm6hd"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://djsaijejumq8k"
+
+[autoload]
+
+SignalBank="*res://scripts/signal_bank.gd"
 
 [display]
 
 window/size/borderless=true
 window/stretch/mode="viewport"
+window/canvas_textures/default_texture_filter=0
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+rendering_device/driver="d3d12"
+rendering_device/driver.windows="d3d12"
