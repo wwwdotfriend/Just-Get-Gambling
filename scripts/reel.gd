@@ -7,6 +7,8 @@ var reel_is_spinning: bool = false
 
 var sprite2_active: bool = false
 
+
+
 var next_threshold: int = -1134   # when the next reel_sprite should be started, last 3 symbols
 var gone_threshold: int = -1260    # when the reel_sprite is out of sight
 const SCROLL_SPEED = 630
@@ -36,6 +38,8 @@ func _process(_delta: float) -> void:
 	
 func _on_start_roll() -> void:
 	reel_is_spinning = true
+	reel_sprite1.position = Vector2(0,0)
+	reel_sprite2.position = Vector2(0,126)
 	sprite1_start1()
 	
 func sprite1_start1() -> void:
@@ -63,4 +67,4 @@ func _on_reel_button_1_button_up() -> void:
 		sprite1_tween.kill()
 	if sprite2_tween:
 		sprite2_tween.kill()
-	
+		
