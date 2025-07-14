@@ -3,7 +3,7 @@ extends Node2D
 @onready var reel_sprite1: Sprite2D = $ReelSprite1
 @onready var reel_sprite2: Sprite2D = $ReelSprite2
 
-var is_spinning: bool = false
+var reel_is_spinning: bool = false
 
 var sprite2_active: bool = false
 
@@ -14,17 +14,15 @@ const SCROLL_SPEED = 630
 var sprite1_tween: Tween
 var sprite2_tween: Tween
 
-
 func _ready() -> void:
 	SignalBank.start_roll.connect(_on_start_roll)
 	reel_sprite1.position = Vector2(0,0)
 	reel_sprite2.position = Vector2(0,126)
-	is_spinning = false
+	reel_is_spinning = false
 	sprite2_active = false
 	
-	
-func _process(delta: float) -> void:
-	if is_spinning:
+func _process(_delta: float) -> void:
+	if reel_is_spinning:
 		if reel_sprite1.position.y <= next_threshold:
 			sprite2_start()
 			if reel_sprite1.position.y >= gone_threshold:
@@ -37,7 +35,7 @@ func _process(delta: float) -> void:
 				
 	
 func _on_start_roll() -> void:
-	is_spinning = true
+	reel_is_spinning = true
 	sprite1_start1()
 	
 func sprite1_start1() -> void:
@@ -58,3 +56,11 @@ func sprite2_start() -> void:
 	sprite2_active = true
 	sprite2_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
 	sprite2_tween.tween_property(reel_sprite2, "position", Vector2(0,-1260), 2.772).from_current()
+	
+func _on_reel_button_1_button_up() -> void:
+	reel_is_spinning = false
+	if sprite1_tween:
+		sprite1_tween.kill()
+	if sprite2_tween:
+		sprite2_tween.kill()
+	

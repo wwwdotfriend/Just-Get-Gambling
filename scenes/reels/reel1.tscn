@@ -7,10 +7,10 @@
 script = ExtResource("1_dqbp5")
 
 [node name="ReelSprite1" type="Sprite2D" parent="."]
+position = Vector2(0, 128)
 texture = ExtResource("2_rnos4")
 centered = false
 
 [node name="ReelSprite2" type="Sprite2D" parent="."]
-position = Vector2(0, 126)
 texture = ExtResource("2_rnos4")
 centered = false
