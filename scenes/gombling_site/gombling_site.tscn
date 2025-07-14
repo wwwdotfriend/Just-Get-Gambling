@@ -36,7 +36,6 @@ size_flags_horizontal = 4
 script = ExtResource("2_4arrq")
 
 [node name="ReelContainer" type="HBoxContainer" parent="SlotMachine"]
-clip_contents = true
 custom_minimum_size = Vector2(210, 126)
 layout_mode = 1
 anchors_preset = 8

@@ -44,17 +44,17 @@ func sprite1_start1() -> void:
 	if sprite1_tween:
 		sprite1_tween.kill()
 	sprite1_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	sprite1_tween.tween_property(reel_sprite1, "position", Vector2(0,-1260), 2).from_current()
+	sprite1_tween.tween_property(reel_sprite1, "position", Vector2(0,-1260), 2.52).from_current()
 	
 func sprite1_start2() -> void:
 	if sprite1_tween:
 		sprite1_tween.kill()
 	sprite1_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	sprite1_tween.tween_property(reel_sprite1, "position", Vector2(0,-1260), 2.2).from_current()
+	sprite1_tween.tween_property(reel_sprite1, "position", Vector2(0,-1260), 2.772).from_current()
 	
 func sprite2_start() -> void:
 	if sprite2_tween:
 		sprite2_tween.kill()
 	sprite2_active = true
 	sprite2_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
-	sprite2_tween.tween_property(reel_sprite2, "position", Vector2(0,-1260), 2.2).from_current()
+	sprite2_tween.tween_property(reel_sprite2, "position", Vector2(0,-1260), 2.772).from_current()

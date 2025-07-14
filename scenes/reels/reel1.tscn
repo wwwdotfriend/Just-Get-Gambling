@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7f7xmmqighuy"]
+[gd_scene load_steps=3 format=3 uid="uid://c7f7xmmqighuy"]
 
 [ext_resource type="Script" uid="uid://ccr3tqbh1v6yd" path="res://scripts/reel.gd" id="1_dqbp5"]
 [ext_resource type="Texture2D" uid="uid://yfro4o7am1e5" path="res://assets/sprites/gombling/slot_machine/Reel1.png" id="2_rnos4"]
-[ext_resource type="Texture2D" uid="uid://2nx01r8g81d7" path="res://assets/sprites/gombling/slot_machine/Reel2.png" id="3_rnos4"]
 
 [node name="Reel1" type="Node2D"]
 script = ExtResource("1_dqbp5")
@@ -13,5 +12,5 @@ centered = false
 
 [node name="ReelSprite2" type="Sprite2D" parent="."]
 position = Vector2(0, 126)
-texture = ExtResource("3_rnos4")
+texture = ExtResource("2_rnos4")
 centered = false
