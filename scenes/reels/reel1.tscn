@@ -1,18 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7f7xmmqighuy"]
+[gd_scene load_steps=2 format=3 uid="uid://c7f7xmmqighuy"]
 
 [ext_resource type="Script" uid="uid://ccr3tqbh1v6yd" path="res://scripts/reel.gd" id="1_dqbp5"]
-[ext_resource type="Texture2D" uid="uid://yfro4o7am1e5" path="res://assets/sprites/gombling/slot_machine/Reel1.png" id="2_rnos4"]
 
-[node name="Reel1" type="Node2D"]
+[node name="Reel1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_dqbp5")
 metadata/_edit_horizontal_guides_ = [126.0, 0.0, 42.0, 84.0]
 metadata/_edit_vertical_guides_ = [0.0, 42.0]
 
-[node name="ReelSprite1" type="Sprite2D" parent="."]
-texture = ExtResource("2_rnos4")
+[node name="ReelSpriteControl" type="Control" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(42, 126)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 42.0
+offset_bottom = 126.0
+
+[node name="ReelSprite1" type="Sprite2D" parent="ReelSpriteControl"]
 centered = false
 
-[node name="ReelSprite2" type="Sprite2D" parent="."]
+[node name="ReelSprite2" type="Sprite2D" parent="ReelSpriteControl"]
 position = Vector2(0, 126)
-texture = ExtResource("2_rnos4")
 centered = false
+
+[node name="ReelButton" type="Button" parent="."]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 0
+offset_top = 136.0
+offset_right = 42.0
+offset_bottom = 178.0
+text = "1"
+
+[connection signal="pressed" from="ReelButton" to="." method="_on_reel_button_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ew68vetpql6q"]
+[gd_scene load_steps=5 format=3 uid="uid://ew68vetpql6q"]
 
 [ext_resource type="Texture2D" uid="uid://dj0ekfh8d8una" path="res://assets/sprites/gombling/mountain_dusk.png" id="1_n0jjl"]
 [ext_resource type="Script" uid="uid://cdmvpdyrahf62" path="res://scripts/slot_machine.gd" id="2_4arrq"]
 [ext_resource type="PackedScene" uid="uid://c7f7xmmqighuy" path="res://scenes/reels/reel1.tscn" id="2_nysx1"]
+[ext_resource type="Texture2D" uid="uid://yfro4o7am1e5" path="res://assets/sprites/gombling/slot_machine/Reel1.png" id="4_nuxy5"]
 
 [node name="GomblingSite" type="Control"]
 custom_minimum_size = Vector2(640, 480)
@@ -16,6 +17,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="BackgroundTexture" type="TextureRect" parent="."]
+visible = false
 z_index = -10
 layout_mode = 1
 anchors_preset = 15
@@ -37,17 +39,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("2_4arrq")
 
-[node name="ReelBackground" type="ColorRect" parent="SlotMachine"]
-custom_minimum_size = Vector2(210, 126)
-layout_mode = 1
-offset_left = -105.0
-offset_top = -63.0
-offset_right = 105.0
-offset_bottom = 63.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="ReelContainer" type="HBoxContainer" parent="SlotMachine"]
 custom_minimum_size = Vector2(210, 126)
 layout_mode = 1
@@ -63,29 +54,30 @@ offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ReelControl" type="Control" parent="SlotMachine/ReelContainer"]
-clip_contents = true
+[node name="Reel1" parent="SlotMachine/ReelContainer" instance=ExtResource("2_nysx1")]
 custom_minimum_size = Vector2(42, 126)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+reel_texture = ExtResource("4_nuxy5")
 
-[node name="Reel1" parent="SlotMachine/ReelContainer/ReelControl" instance=ExtResource("2_nysx1")]
+[node name="Reel2" parent="SlotMachine/ReelContainer" instance=ExtResource("2_nysx1")]
+custom_minimum_size = Vector2(42, 126)
+layout_mode = 2
+reel_texture = ExtResource("4_nuxy5")
 
-[node name="ReelButton1" type="Button" parent="SlotMachine"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -95.9998
-offset_top = 68.0
-offset_right = -69.9998
-offset_bottom = 99.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "1"
+[node name="Reel3" parent="SlotMachine/ReelContainer" instance=ExtResource("2_nysx1")]
+custom_minimum_size = Vector2(42, 126)
+layout_mode = 2
+reel_texture = ExtResource("4_nuxy5")
+
+[node name="Reel4" parent="SlotMachine/ReelContainer" instance=ExtResource("2_nysx1")]
+custom_minimum_size = Vector2(42, 126)
+layout_mode = 2
+reel_texture = ExtResource("4_nuxy5")
+
+[node name="Reel5" parent="SlotMachine/ReelContainer" instance=ExtResource("2_nysx1")]
+custom_minimum_size = Vector2(42, 126)
+layout_mode = 2
+reel_texture = ExtResource("4_nuxy5")
 
 [node name="SpinButton" type="Button" parent="."]
 layout_mode = 1
@@ -102,7 +94,4 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Sping!"
 
-[node name="Node" type="Node" parent="."]
-
-[connection signal="button_up" from="SlotMachine/ReelButton1" to="SlotMachine/ReelContainer/ReelControl/Reel1" method="_on_reel_button_1_button_up"]
 [connection signal="pressed" from="SpinButton" to="SlotMachine" method="_on_spin_button_pressed"]
