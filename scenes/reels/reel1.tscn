@@ -5,12 +5,14 @@
 
 [node name="Reel1" type="Node2D"]
 script = ExtResource("1_dqbp5")
+metadata/_edit_horizontal_guides_ = [126.0, 0.0, 42.0, 84.0]
+metadata/_edit_vertical_guides_ = [0.0, 42.0]
 
 [node name="ReelSprite1" type="Sprite2D" parent="."]
-position = Vector2(0, 128)
 texture = ExtResource("2_rnos4")
 centered = false
 
 [node name="ReelSprite2" type="Sprite2D" parent="."]
+position = Vector2(0, 126)
 texture = ExtResource("2_rnos4")
 centered = false
