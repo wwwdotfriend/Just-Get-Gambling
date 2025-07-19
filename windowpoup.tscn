@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://57bi8eo4bx6h"]
+
+[ext_resource type="Script" uid="uid://ddlic6wt0tas4" path="res://windowpoup.gd" id="1_bvlrq"]
+[ext_resource type="Texture2D" uid="uid://p1s1ejwrugtk" path="res://gambslot1r.png" id="1_ubdim"]
+
+[node name="WINDOWPOUP" type="Node2D"]
+script = ExtResource("1_bvlrq")
+
+[node name="Window" type="Window" parent="."]
+title = "POPUP"
+initial_position = 1
+size = Vector2i(500, 500)
+
+[node name="Camera2D" type="Camera2D" parent="Window"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Window/Camera2D"]
+position = Vector2(43, -19)
+scale = Vector2(1.61111, 1.61111)
+texture = ExtResource("1_ubdim")
+
+[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]

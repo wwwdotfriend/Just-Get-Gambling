@@ -1,0 +1,263 @@
+[gd_scene load_steps=20 format=3 uid="uid://cbeedr1srjc7l"]
+
+[ext_resource type="Texture2D" uid="uid://b845smy3hnv5v" path="res://compbg.png" id="1_cg426"]
+[ext_resource type="Script" uid="uid://dey6l77rulpi3" path="res://scenes/screencompmanager.gd" id="1_ocmvo"]
+[ext_resource type="Texture2D" uid="uid://djl1fn8ysemqk" path="res://qiboume-Recovered.png" id="1_yjbsf"]
+[ext_resource type="Texture2D" uid="uid://c5gs6fo3c7pg3" path="res://Work_hover.png" id="2_6gt4s"]
+[ext_resource type="Texture2D" uid="uid://cpsbgqv7bilem" path="res://qiboumehover.png" id="2_ocmvo"]
+[ext_resource type="Texture2D" uid="uid://1qfoynpi61ju" path="res://mailicongambt.png" id="3_vs7rp"]
+[ext_resource type="Texture2D" uid="uid://e3ydrb3v2evk" path="res://Gambahoverclickt.png" id="4_rdr1n"]
+[ext_resource type="Texture2D" uid="uid://bb3q3n2gbgtnc" path="res://coingambat.png" id="4_vs7rp"]
+[ext_resource type="FontFile" uid="uid://bgirind21o3b1" path="res://Abaddon Bold.ttf" id="6_88e66"]
+[ext_resource type="Script" uid="uid://bntl5k82p0tut" path="res://scenes/menu_stat_display.gd" id="6_ukpmv"]
+[ext_resource type="Texture2D" uid="uid://dgonym3ilirpk" path="res://workwindow.png" id="11_nwsjw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nwsjw"]
+texture = ExtResource("2_ocmvo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_futxe"]
+texture = ExtResource("1_yjbsf")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rdr1n"]
+texture = ExtResource("2_6gt4s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88e66"]
+texture = ExtResource("3_vs7rp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjbsf"]
+texture = ExtResource("4_rdr1n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ocmvo"]
+texture = ExtResource("4_rdr1n")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukpmv"]
+texture = ExtResource("4_vs7rp")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wr174"]
+texture = ExtResource("2_ocmvo")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ComputerScreen" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen", "work_menu_screen")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ocmvo")
+menu_screen = NodePath("Basemenuscreencontainer")
+open_menu_screen = NodePath("Basemenuopencontainer")
+work_menu_screen = NodePath("emailworkcontainer")
+
+[node name="Basemenuscreencontainer" type="VBoxContainer" parent="ComputerScreen"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 100
+
+[node name="basemenuscreen" type="MarginContainer" parent="ComputerScreen/Basemenuscreencontainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Togglemenu" type="Button" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_nwsjw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_futxe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_futxe")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer"]
+custom_minimum_size = Vector2(640, 480)
+layout_mode = 2
+texture = ExtResource("1_cg426")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = -570
+theme_override_constants/margin_bottom = -400
+
+[node name="Buttoncontainer" type="VBoxContainer" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="TopButtonConttainer" type="HBoxContainer" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer/Buttoncontainer"]
+layout_mode = 2
+
+[node name="work2" type="Button" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer/Buttoncontainer/TopButtonConttainer"]
+visible = false
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_rdr1n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rdr1n")
+theme_override_styles/normal = SubResource("StyleBoxTexture_88e66")
+
+[node name="BottomButtonConttainer2" type="HBoxContainer" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer/Buttoncontainer"]
+layout_mode = 2
+theme_override_constants/separation = 429
+
+[node name="toggleexitmenubutton" type="Button" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer/Buttoncontainer/BottomButtonConttainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_rdr1n")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rdr1n")
+theme_override_styles/normal = SubResource("StyleBoxTexture_88e66")
+
+[node name="Gamba" type="Button" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer/Buttoncontainer/BottomButtonConttainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_yjbsf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ocmvo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ukpmv")
+
+[node name="statdisplaycontainer" type="VBoxContainer" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+script = ExtResource("6_ukpmv")
+
+[node name="moneyDisplay" type="Label" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer/statdisplaycontainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("6_88e66")
+theme_override_font_sizes/font_size = 30
+text = "Money:"
+
+[node name="workDisplay" type="Label" parent="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer/statdisplaycontainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("6_88e66")
+theme_override_font_sizes/font_size = 30
+text = "Work:"
+
+[node name="seperator" type="Control" parent="ComputerScreen/Basemenuscreencontainer"]
+layout_mode = 2
+
+[node name="Basemenuopencontainer" type="VBoxContainer" parent="ComputerScreen"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="seperator" type="Control" parent="ComputerScreen/Basemenuopencontainer"]
+layout_mode = 2
+
+[node name="Togglemenu" type="Button" parent="ComputerScreen/Basemenuopencontainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_wr174")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_futxe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_futxe")
+
+[node name="emailworkcontainer" type="MarginContainer" parent="ComputerScreen"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ComputerScreen/emailworkcontainer"]
+custom_minimum_size = Vector2(640, 480)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("11_nwsjw")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="ComputerScreen/emailworkcontainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 250
+
+[node name="customerDisplay" type="Label" parent="ComputerScreen/emailworkcontainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("6_88e66")
+theme_override_font_sizes/font_size = 30
+text = "Customer"
+
+[node name="seperator" type="Control" parent="ComputerScreen/emailworkcontainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="exitbuttom" type="VBoxContainer" parent="ComputerScreen/emailworkcontainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerScreen/emailworkcontainer/exitbuttom"]
+layout_mode = 2
+theme_override_constants/margin_top = 55
+theme_override_constants/margin_right = 5
+
+[node name="toggleexitmenubutton" type="Button" parent="ComputerScreen/emailworkcontainer/exitbuttom/MarginContainer"]
+custom_minimum_size = Vector2(43, 43)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerScreen/emailworkcontainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 130
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ComputerScreen/emailworkcontainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ComputerScreen/emailworkcontainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="text1Display" type="Label" parent="ComputerScreen/emailworkcontainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("6_88e66")
+theme_override_font_sizes/font_size = 24
+text = "need my doink donked"
+
+[node name="TextureRect" type="TextureRect" parent="ComputerScreen/emailworkcontainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_vs7rp")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="pressed" from="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/Togglemenu" to="ComputerScreen" method="_on_togglemenu_pressed"]
+[connection signal="pressed" from="ComputerScreen/Basemenuscreencontainer/basemenuscreen/VBoxContainer/NinePatchRect/MarginContainer/Buttoncontainer/BottomButtonConttainer2/toggleexitmenubutton" to="ComputerScreen" method="_on_toggleexitmenubutton_pressed"]
+[connection signal="pressed" from="ComputerScreen/Basemenuopencontainer/Togglemenu" to="ComputerScreen" method="_on_togglemenu_pressed"]
+[connection signal="pressed" from="ComputerScreen/emailworkcontainer/exitbuttom/MarginContainer/toggleexitmenubutton" to="ComputerScreen" method="_on_toggleexitmenubutton_pressed"]

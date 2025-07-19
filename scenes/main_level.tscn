@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://b08h8jrqtm6hd"]
+[gd_scene load_steps=11 format=3 uid="uid://b08h8jrqtm6hd"]
 
 [ext_resource type="PackedScene" uid="uid://ew68vetpql6q" path="res://scenes/gombling_site/gombling_site.tscn" id="1_v3uhd"]
+[ext_resource type="Texture2D" uid="uid://p1s1ejwrugtk" path="res://gambslot1r.png" id="2_ufxs0"]
+[ext_resource type="Texture2D" uid="uid://c3i5sv6a0ndol" path="res://(_) node_2d.tscn - New Game Project - Godot Engine 7_12_2025 8_56_34 PM-Rescovered.png" id="3_bq26l"]
+[ext_resource type="Texture2D" uid="uid://ck1703uh0i0f2" path="res://(_) node_2d.tscn - New Game Project - Godot Engine 7_12ss_2025 8_56_34 PM.png" id="4_bq26l"]
+[ext_resource type="Texture2D" uid="uid://djl1fn8ysemqk" path="res://qiboume-Recovered.png" id="5_k5pu3"]
+[ext_resource type="Texture2D" uid="uid://cevuhnih8qaur" path="res://(_) node_2d.tscn - New Game Project - Godosdasst Engine 7_12_2025 8_56_34 PM.png" id="6_iqu8w"]
+[ext_resource type="Script" uid="uid://ct4x65fqdn4ya" path="res://scenes/sprite_2d_4.gd" id="6_u2c82"]
+[ext_resource type="PackedScene" uid="uid://cgtl4eue6ef3t" path="res://scenes/windowpoup.tscn" id="9_iqu8w"]
+
+[sub_resource type="GDScript" id="GDScript_k5pu3"]
+script/source = "extends TextureRect
+
+class_name DesktopIcon
+
+export (Texture) var idle_texture
+export (Texture) var hover_texture
+export (Texture) var click_texture
+
+func _ready():
+	texture = idle_texture
+
+func click():
+	print(\"bye\")
+	get_tree().queue_delete(get_tree())
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2c82"]
+size = Vector2(74.6193, 74.5238)
 
 [node name="Main" type="Node2D"]
 
@@ -24,3 +51,53 @@ color = Color(0.688199, 0.945335, 0.963905, 1)
 [node name="Camera2D" type="Camera2D" parent="."]
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ufxs0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-75, -177)
+scale = Vector2(4.00605, 4.00605)
+texture = ExtResource("3_bq26l")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(278, -229)
+scale = Vector2(4.27974, 4.27974)
+texture = ExtResource("4_bq26l")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(3, -251)
+scale = Vector2(4.69052, 4.69052)
+texture = ExtResource("6_iqu8w")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("6_u2c82")
+
+[node name="SpriteClickable" type="Sprite2D" parent="Node2D"]
+z_index = -15
+position = Vector2(-416, -145)
+scale = Vector2(2.27823, 2.27823)
+texture = ExtResource("5_k5pu3")
+script = SubResource("GDScript_k5pu3")
+
+[node name="Area2D" type="Area2D" parent="Node2D/SpriteClickable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/SpriteClickable/Area2D"]
+position = Vector2(3.07259, -27.2619)
+shape = SubResource("RectangleShape2D_u2c82")
+
+[node name="WINDOWPOUP" parent="." instance=ExtResource("9_iqu8w")]
+
+[node name="website" type="Node2D" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="website"]
+offset_left = -1.0
+offset_top = -29.0
+offset_right = 604.0
+offset_bottom = 576.0
+texture = ExtResource("2_ufxs0")
+
+[connection signal="input_event" from="Node2D/SpriteClickable/Area2D" to="Node2D" method="_on_area_2d_input_event"]
